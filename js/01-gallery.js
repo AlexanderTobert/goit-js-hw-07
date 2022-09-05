@@ -3,6 +3,12 @@ import { galleryItems } from './gallery-items.js';
 
 console.log(galleryItems);
 
+const galeryCardItems = createGaleryCardItems(galleryItems);
+
+const galleryContainerRef = document.querySelector('.gallery');
+
+galleryContainerRef.insertAdjacentHTML('beforeend', galeryCardItems);
+
 function createGaleryCardItems(galleryItems) {
     return galleryItems.map(({preview, original, description}) => {
         return `<div class="gallery__item">
@@ -18,8 +24,22 @@ function createGaleryCardItems(galleryItems) {
     }).join('');
 }
 
-const galeryCardItems = createGaleryCardItems(galleryItems);
+galleryContainerRef.addEventListener("click", originalSrc);
 
-const galleryContainerRef = document.querySelector('.gallery');
+function originalSrc(e){
+    if (e.target.nodeName !== "IMG") {
+        return;
+    }
+    const originalSrc = e.target.dataset.source;
+    console.log(originalSrc);
+}
 
-galleryContainerRef.insertAdjacentHTML('beforeend', galeryCardItems);
+function preventDef(e) {
+  e.preventDefault();
+}
+
+function addLinkHandler() {
+    document.querySelector(".gallery__link").addEventListener("onclick", preventDef, false);
+}
+
+addLinkHandler();

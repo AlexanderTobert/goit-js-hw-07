@@ -40,7 +40,8 @@ function originalSrc(e){
     galleryContainerRef.addEventListener("keydown", e => { 
         if (e.code === "Escape") {
         // console.log(e.code);
-        instance.close();
+            instance.close();
+            galleryContainerRef.removeEventListener;
     }
     })
     

@@ -17,13 +17,20 @@ function createGaleryCardItems(galleryItems) {
     }).join('');
 }
 
-function galeryLightBox(e){
-    e.preventDefault();
-    const gallery = new SimpleLightbox('.gallery a', {
+const gallery = new SimpleLightbox('.gallery a', {
         captionsData: "alt",
         captionPosition: 'bottom',
         captionDelay: 250
     }); 
-}
 
-galleryContainerRef.addEventListener("click", galeryLightBox);
+// function galeryLightBox(e){
+    
+//     const gallery = new SimpleLightbox('.gallery a', {
+//         captionsData: "alt",
+//         captionPosition: 'bottom',
+//         captionDelay: 250
+//     }); 
+//     galleryContainerRef.removeEventListener;
+// }
+
+// galleryContainerRef.addEventListener("click", galeryLightBox);
